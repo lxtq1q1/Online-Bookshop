@@ -79,9 +79,9 @@
             </div>
             <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
             <ul class="list-unstyled">
-                <li class="active"><a href="#"> <i class="icon-home"></i>Home </a></li>
+                <li ><a href="/manager_index.do"> <i class="icon-home"></i>Home </a></li>
                 <li ><a id="users" href="/manager_user.do"> <i class="icon-grid" ></i>Users </a> </li>
-                <li><a id="books" href="/manager_book.do"> <i class="fa fa-bar-chart"></i>Books </a></li>
+                <li class="active"><a id="books" href="#"> <i class="fa fa-bar-chart"></i>Books </a></li>
                 <li><a id="orders" href="/allBookOrder.do"> <i class="icon-padnote"></i>Orders </a></li>
                 <%--<li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>Example dropdown </a>--%>
                     <%--<ul id="exampledropdownDropdown" class="collapse list-unstyled ">--%>
@@ -106,7 +106,76 @@
                 <h2 class="no-margin-bottom">主页</h2>
             </div>
         </header>
-                <div class="clear"></div>
+            <section class="tables">
+                <div class="container-fluid">
+                    <div class="row">
+                        <%--用户表单--%>
+                        <div class="col-lg-12">
+                            <div class="card">
+                                <div class="card-close">
+                                    <div class="dropdown">
+                                        <button type="button" id="closeCard1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-ellipsis-v"></i></button>
+                                        <div aria-labelledby="closeCard1" class="dropdown-menu dropdown-menu-right has-shadow"><a href="#" class="dropdown-item remove"> <i class="fa fa-times"></i>Close</a><a href="#" class="dropdown-item edit"> <i class="fa fa-gear"></i>Edit</a></div>
+                                    </div>
+                                </div>
+                                <div class="card-header d-flex align-items-center">
+                                    <h3 class="h4">Book Table</h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="table table-striped">
+                                        <table class="table" id="user_table">
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>商品名称</th>
+                                                <th>操作</th>
+                                            </tr>
+                                            <c:forEach var="book" items="${books}">
+                                                <tr><td class="first w4 c">${book.bid }</td>
+                                                    <td class="thumb"><img height="77" width="77" src="../../images/product/${book.image }" /><a href="../product-view.html" target="_blank">${book.bname }</a></td>
+                                                    <td class="w1 c"><a href="modifyBookPage.do?bid=${book.bid}">修改</a> <a href="delBook.do?bid=${book.bid}">删除</a></td>
+                                                </tr>
+                                            </c:forEach>
+                                        </table>
+                                        <div class="pager">
+                                            <ul class="clearfix">
+                                                <c:choose>
+                                                    <c:when test="${pageInfo.hasPreviousPage}">
+                                                        <li><a href="manager_book.do?pageNum=1">首页</a></li>
+                                                        <li><a href="manager_book.do?pageNum=${pageInfo.prePage }">上一页</a></li>
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        <li><span>首页</span></li>
+                                                        <li><span>上一页</span></li>
+                                                    </c:otherwise>
+                                                </c:choose>
+
+                                                <c:forEach var="index" begin="1" end="${pageInfo.pages }">
+
+                                                    <li
+                                                            <c:if test="${index==pageInfo.pageNum}">class="current"</c:if>><a
+                                                            href="manager_book.do?pageNum=${index }">${index }</a></li>
+                                                </c:forEach>
+
+                                                <c:choose>
+                                                    <c:when test="${pageInfo.hasNextPage}">
+                                                        <li><a href="manager_book.do?pageNum=${pageInfo.nextPage }">下一页</a></li>
+                                                        <li><a href="manager_book.do?pageNum=${pageInfo.pages }">尾页</a></li>
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        <li><span>下一页</span>下一页</li>
+                                                        <li><span>尾页</span></li>
+                                                    </c:otherwise>
+                                                </c:choose>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="clear"></div>
             <footer class="main-footer">
             <div class="container-fluid">
                 <div class="row">

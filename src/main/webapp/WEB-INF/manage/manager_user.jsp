@@ -79,8 +79,8 @@
             </div>
             <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
             <ul class="list-unstyled">
-                <li class="active"><a href="#"> <i class="icon-home"></i>Home </a></li>
-                <li ><a id="users" href="/manager_user.do"> <i class="icon-grid" ></i>Users </a> </li>
+                <li ><a href="/manager_index.do"> <i class="icon-home"></i>Home </a></li>
+                <li class="active"><a id="users" href="#"> <i class="icon-grid" ></i>Users </a> </li>
                 <li><a id="books" href="/manager_book.do"> <i class="fa fa-bar-chart"></i>Books </a></li>
                 <li><a id="orders" href="/allBookOrder.do"> <i class="icon-padnote"></i>Orders </a></li>
                 <%--<li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>Example dropdown </a>--%>
@@ -106,6 +106,54 @@
                 <h2 class="no-margin-bottom">主页</h2>
             </div>
         </header>
+            <section class="tables">
+                <div class="container-fluid">
+                    <div class="row">
+                        <%--用户表单--%>
+                        <div class="col-lg-12">
+                            <div class="card">
+                                <div class="card-close">
+                                    <div class="dropdown">
+                                        <button type="button" id="closeCard1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-ellipsis-v"></i></button>
+                                        <div aria-labelledby="closeCard1" class="dropdown-menu dropdown-menu-right has-shadow"><a href="#" class="dropdown-item remove"> <i class="fa fa-times"></i>Close</a><a href="#" class="dropdown-item edit"> <i class="fa fa-gear"></i>Edit</a></div>
+                                    </div>
+                                </div>
+                                <div class="card-header d-flex align-items-center">
+                                    <h3 class="h4">User Table</h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="table table-striped">
+                                        <table class="table" id="user_table">
+                                            <tr>
+                                                <th>uid</th>
+                                                <th>Username</th>
+                                                <th>Password</th>
+                                                <th>Phone</th>
+                                                <th>Email</th>
+                                                <th>Adress</th>
+                                                <th>Operating</th>
+                                            </tr>
+                                            <c:forEach var="user" items="${users}">
+                                                <tr>
+                                                    <td >${user.uid}</td>
+                                                    <td >${user.uname}</td>
+                                                    <td >${user.password}</td>
+                                                    <td>${user.phone}</td>
+                                                    <td >${user.email}</td>
+                                                    <td >${user.adress}</td>
+                                                    <td ><a href="modifyUserPage.do?uid=${user.uid}" target="_blank">修改</a>
+                                                        <a href="#" onclick="deleteUser()">点我</a>
+                                                         <a href="delUser.do?uid=${user.uid}">删除</a></td>
+                                                </tr>
+                                            </c:forEach>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
                 <div class="clear"></div>
             <footer class="main-footer">
             <div class="container-fluid">

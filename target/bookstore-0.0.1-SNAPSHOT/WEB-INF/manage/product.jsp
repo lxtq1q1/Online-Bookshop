@@ -50,8 +50,7 @@
 					<th>操作</th>
 				</tr>
 				<c:forEach var="book" items="${books}">
-						<tr>
-							<td class="first w4 c">${book.bid }</td>
+						<tr><td class="first w4 c">${book.bid }</td>
 					<td class="thumb"><img height="77" width="77" src="../../images/product/${book.image }" /><a href="../product-view.html" target="_blank">${book.bname }</a></td>
 					<td class="w1 c"><a href="modifyBookPage.do?bid=${book.bid}">修改</a> <a href="delBook.do?bid=${book.bid}">删除</a></td>
 						</tr>

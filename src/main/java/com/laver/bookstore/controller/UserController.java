@@ -96,6 +96,7 @@ public class UserController {
         model.addAttribute("users", users);
         return "manage/user";
     }
+
     @RequestMapping("/modifyUserPage")
     public String modifyUserPage(Model model,Integer uid){
         User user = userService.findUserById(uid);
@@ -199,6 +200,20 @@ public class UserController {
         }
         return "false";
     }
+
+    //修改
+    @RequestMapping("/manager_user")
+    public String manager_user(Model model){
+        List<User> users = userService.findAllUser();
+        model.addAttribute("users", users);
+        return "manage/manager_user";
+    }
+
+    @RequestMapping("/manager_index")
+    public String manager_index(Model model){
+        return "manage/manager_index";
+    }
+
 
 
 

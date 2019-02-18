@@ -237,4 +237,18 @@ public class BookController {
         Cookie cookie = new Cookie("ListViewCookie",list);
         response.addCookie(cookie);
 	}
+	//修改
+	@RequestMapping("/manager_book")
+	public String manager_book(Integer pageNum,Model model){
+		if(pageNum!=null){
+			PageHelper.startPage(pageNum,com.laver.bookstore.util.Constant.MB_PAGE_SIZE);
+		}else{
+			PageHelper.startPage(1, com.laver.bookstore.util.Constant.MB_PAGE_SIZE);
+		}
+		List<Book> books = bookService.findAllBook();
+		PageInfo<Book> pageInfo = new PageInfo<Book>(books);
+		model.addAttribute("pageInfo", pageInfo);
+		model.addAttribute("books", books);
+		return "manage/manager_book";
+	}
 }
