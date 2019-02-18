@@ -10,21 +10,8 @@
     <bookmark url="file://$PROJECT_DIR$/src/main/java/com/laver/bookstore/controller/BookOrderController.java" line="90" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="746f3667-af67-4fe8-a3d4-e5120a2ca057" name="Default" comment="beautiful UI 3.0">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/manage/manager_book.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/manage/manager_user.jsp" afterDir="false" />
+    <list default="true" id="746f3667-af67-4fe8-a3d4-e5120a2ca057" name="Default" comment="2019/2/18 18-02">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/laver/bookstore/controller/BookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/laver/bookstore/controller/BookController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/laver/bookstore/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/laver/bookstore/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/manage/manager_index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/manage/manager_index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/manage/product.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/manage/product.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bookstore-0.0.1-SNAPSHOT/WEB-INF/classes/com/laver/bookstore/controller/BookController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/bookstore-0.0.1-SNAPSHOT/WEB-INF/classes/com/laver/bookstore/controller/BookController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bookstore-0.0.1-SNAPSHOT/WEB-INF/classes/com/laver/bookstore/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/bookstore-0.0.1-SNAPSHOT/WEB-INF/classes/com/laver/bookstore/controller/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bookstore-0.0.1-SNAPSHOT/WEB-INF/manage/manager_index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bookstore-0.0.1-SNAPSHOT/WEB-INF/manage/manager_index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bookstore-0.0.1-SNAPSHOT/WEB-INF/manage/product.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bookstore-0.0.1-SNAPSHOT/WEB-INF/manage/product.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/laver/bookstore/controller/BookController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/laver/bookstore/controller/BookController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/laver/bookstore/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/laver/bookstore/controller/UserController.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -155,7 +142,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/manage/manager_book.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="616">
+            <state relative-caret-position="141">
               <caret line="143" column="81" selection-start-line="143" selection-start-column="81" selection-end-line="143" selection-end-column="81" />
             </state>
           </provider>
@@ -426,7 +413,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550484082991" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550490198775" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../git/Git/bin/git.exe" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -793,7 +780,7 @@
       <workItem from="1549960466758" duration="617000" />
       <workItem from="1550136121780" duration="2316000" />
       <workItem from="1550213553133" duration="2101000" />
-      <workItem from="1550452459734" duration="18819000" />
+      <workItem from="1550452459734" duration="18930000" />
     </task>
     <task id="LOCAL-00001" summary="update head.html">
       <created>1537023920163</created>
@@ -900,11 +887,18 @@
       <option name="project" value="LOCAL" />
       <updated>1550480315934</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="2019/2/18 18-02">
+      <created>1550484143763</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1550484143763</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="227595000" />
+    <option name="totallyTimeSpent" value="227706000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -917,7 +911,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Nl-Palette" order="0" />
       <window_info id="Capture Tool" order="1" />
@@ -929,10 +922,10 @@
       <window_info id="Structure" order="7" weight="0.25" />
       <window_info id="Web" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Event Log" order="0" side_tool="true" weight="0.32956153" />
-      <window_info anchor="bottom" id="Version Control" order="1" weight="0.32577905" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="1" visible="true" weight="0.32577905" />
       <window_info anchor="bottom" id="Terminal" order="2" weight="0.32956153" />
       <window_info anchor="bottom" id="Message" order="3" />
-      <window_info active="true" anchor="bottom" id="Run" order="4" visible="true" weight="0.26770538" />
+      <window_info anchor="bottom" id="Run" order="4" weight="0.26770538" />
       <window_info anchor="bottom" id="Debug" order="5" weight="0.2660152" />
       <window_info anchor="bottom" id="Cvs" order="6" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="7" weight="0.4" />
@@ -985,7 +978,8 @@
     <MESSAGE value="beautiful UI 2.0" />
     <MESSAGE value="2019/2/18 16-57" />
     <MESSAGE value="beautiful UI 3.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="beautiful UI 3.0" />
+    <MESSAGE value="2019/2/18 18-02" />
+    <option name="LAST_COMMIT_MESSAGE" value="2019/2/18 18-02" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1258,7 +1252,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/manage/manager_book.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="616">
+        <state relative-caret-position="141">
           <caret line="143" column="81" selection-start-line="143" selection-start-column="81" selection-end-line="143" selection-end-column="81" />
         </state>
       </provider>
