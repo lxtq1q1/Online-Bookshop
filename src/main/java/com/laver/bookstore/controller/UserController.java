@@ -41,23 +41,7 @@ public class UserController {
     @Resource
     private IOrderDetailService orderDetailService;
 
-	@RequestMapping("backLoginPage")
-	public String loginPage(){
-		return "manage/manager_login";//后台登陆manager_login.jsp
 
-	}
-	@RequestMapping("backLogin")
-	public String login(HttpSession session,String username, String password,Model model) {
-		if (!StringUtils.isEmpty(username) && !StringUtils.isEmpty(password)) {//如果username/password不为空且username=admin&&password=admin,返回index,jsp
-			if (password.equals("1") && username.equals("sysadmin")) {
-				session.setAttribute("sysadmin","1"	);
-                List<User> users = userService.findAllUser();
-                model.addAttribute("users", users);
-				return "manage/manager_index";//username/password不为空且username=admin&&password=admin,返回index.jsp
-			}
-		}
-		return "manage/manager_login";//验证失败则回到manager_login.jsp
-	}
     @ResponseBody
     @RequestMapping("/userReg")
     public String userReg(String userName,String passWord){
@@ -91,8 +75,15 @@ public class UserController {
         return "false";
     }
     @RequestMapping("/manaUser")
-    public String manaUser(Model model){
+    public String manaUser(Integer pageNum,Model model){
+        if(pageNum!=null){
+            PageHelper.startPage(pageNum,com.laver.bookstore.util.Constant.MU_PAGE_SIZE);
+        }else{
+            PageHelper.startPage(1, com.laver.bookstore.util.Constant.MU_PAGE_SIZE);
+        }
         List<User> users = userService.findAllUser();
+        PageInfo<User> pageInfo = new PageInfo<User>(users);
+        model.addAttribute("pageInfo", pageInfo);
         model.addAttribute("users", users);
         return "manage/user";
     }
@@ -114,7 +105,7 @@ public class UserController {
         user.setPhone(phone);
         user.setAdress(address);
         userService.userModify(user);
-        return new ModelAndView("redirect:/manaUser.do");
+        return new ModelAndView("redirect:/manager_user.do");
     }
     @RequestMapping("/delUser")
     public ModelAndView deleteUser(Integer uid){
@@ -202,16 +193,48 @@ public class UserController {
     }
 
     //修改
-    @RequestMapping("/manager_user")
-    public String manager_user(Model model){
+    @RequestMapping("backLoginPage")//后台登陆重写
+    public String loginPage(){
+        return "manage/manager_login";//后台登陆manager_login.jsp
+
+    }
+    @RequestMapping("backLogin")//登陆验证重写
+    public String login(HttpSession session,String username, String password,Model model) {
+        if (!StringUtils.isEmpty(username) && !StringUtils.isEmpty(password)) {//如果username/password不为空且username=admin&&password=admin,返回index,jsp
+            if (password.equals("1") && username.equals("sysadmin")) {
+                session.setAttribute("sysadmin","1"	);
+                List<User> users = userService.findAllUser();
+                model.addAttribute("users", users);
+                return "manage/manager_index";//username/password不为空且username=admin&&password=admin,返回index.jsp
+            }
+        }
+        return "manage/manager_login";//验证失败则回到manager_login.jsp
+    }
+    @RequestMapping("/manager_index")//主页重写
+    public String manager_index(Model model){
+        return "manage/manager_index";
+    }
+
+
+    @RequestMapping("/manager_user")//用户管理重写
+    public String manager_user(Integer pageNum,Model model){
+        if(pageNum!=null){
+            PageHelper.startPage(pageNum,com.laver.bookstore.util.Constant.MU_PAGE_SIZE);
+        }else{
+            PageHelper.startPage(1, com.laver.bookstore.util.Constant.MU_PAGE_SIZE);
+        }
         List<User> users = userService.findAllUser();
+        PageInfo<User> pageInfo = new PageInfo<User>(users);
+        model.addAttribute("pageInfo", pageInfo);
         model.addAttribute("users", users);
         return "manage/manager_user";
     }
 
-    @RequestMapping("/manager_index")
-    public String manager_index(Model model){
-        return "manage/manager_index";
+    @RequestMapping("/manager_user_modify")//用户信息修改界面重写
+    public String manager_user_modify(Model model,Integer uid){
+        User user = userService.findUserById(uid);
+        model.addAttribute("user", user);
+        return "manage/manager_user_modify";
     }
 
 

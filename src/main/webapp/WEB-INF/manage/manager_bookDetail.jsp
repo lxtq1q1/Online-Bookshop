@@ -1,18 +1,22 @@
 <%--
   Created by IntelliJ IDEA.
   User: admin
-  Date: 2019/1/26
-  Time: 16:26
+  Date: 2019/2/19
+  Time: 10:39
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8" isELIgnored="false"%>
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>后台管理</title>
+    <title>书籍详情页</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="robots" content="all,follow">
@@ -80,16 +84,16 @@
             </div>
             <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
             <ul class="list-unstyled">
-                <li ><a href="/manager_index.do"> <i class="icon-home"></i>Home </a></li>
-                <li class="active"><a id="users" href="#"> <i class="icon-grid" ></i>Users </a> </li>
-                <li><a id="books" href="/manager_book.do"> <i class="fa fa-bar-chart"></i>Books </a></li>
-                <li><a id="orders" href="/manager_order.do"> <i class="icon-padnote"></i>Orders </a></li>
+                <li><a href="#"> <i class="icon-home"></i>Home </a></li>
+                <li><a id="users" href="#"> <i class="icon-grid" ></i>Users </a> </li>
+                <li><a id="books" href="#"> <i class="fa fa-bar-chart"></i>Books </a></li>
+                <li><a id="orders" href="#"> <i class="icon-padnote"></i>Orders </a></li>
                 <%--<li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>Example dropdown </a>--%>
-                    <%--<ul id="exampledropdownDropdown" class="collapse list-unstyled ">--%>
-                        <%--<li><a href="#">Page</a></li>--%>
-                        <%--<li><a href="#">Page</a></li>--%>
-                        <%--<li><a href="#">Page</a></li>--%>
-                    <%--</ul>--%>
+                <%--<ul id="exampledropdownDropdown" class="collapse list-unstyled ">--%>
+                <%--<li><a href="#">Page</a></li>--%>
+                <%--<li><a href="#">Page</a></li>--%>
+                <%--<li><a href="#">Page</a></li>--%>
+                <%--</ul>--%>
                 <%--</li>--%>
                 <%--<li><a href="#"> <i class="icon-interface-windows"></i>Login page </a></li>--%>
             </ul><span class="heading">Extras</span>
@@ -101,12 +105,12 @@
             </ul>
         </nav>
         <div class="content-inner">
-        <!-- Page Header-->
-        <header class="page-header">
-            <div class="container-fluid">
-                <h2 class="no-margin-bottom">用户</h2>
-            </div>
-        </header>
+            <!-- Page Header-->
+            <header class="page-header">
+                <div class="container-fluid">
+                    <h2 class="no-margin-bottom">书籍详情页</h2>
+                </div>
+            </header>
             <section class="tables">
                 <div class="container-fluid">
                     <div class="row">
@@ -120,66 +124,48 @@
                                     </div>
                                 </div>
                                 <div class="card-header d-flex align-items-center">
-                                    <h3 class="h4">User Table</h3>
+                                    <h3 class="h4">${book.bname}</h3>
                                 </div>
-                                <div class="card-body">
-                                    <div class="table table-striped">
-                                        <table class="table" id="user_table">
-                                            <tr>
-                                                <th>uid</th>
-                                                <th>Username</th>
-                                                <th>Password</th>
-                                                <th>Phone</th>
-                                                <th>Email</th>
-                                                <th>Adress</th>
-                                                <th>Operating</th>
-                                            </tr>
-                                            <c:forEach var="user" items="${users}">
-                                                <tr>
-                                                    <td >${user.uid}</td>
-                                                    <td >${user.uname}</td>
-                                                    <td >${user.password}</td>
-                                                    <td>${user.phone}</td>
-                                                    <td >${user.email}</td>
-                                                    <td >${user.adress}</td>
-                                                    <td >
-                                                        <a href="manager_user_modify.do?uid=${user.uid}">修改</a>
-                                                         <%--<a href="delUser.do?uid=${user.uid}">删除</a>--%>
-                                                    </td>
-                                                </tr>
-                                            </c:forEach>
-                                        </table>
-                                        <div class="pager">
-                                            <ul class="clearfix">
-                                                <c:choose>
-                                                    <c:when test="${pageInfo.hasPreviousPage}">
-                                                        <li><a href="manager_user.do?pageNum=1">首页</a></li>
-                                                        <li><a href="manager_user.do?pageNum=${pageInfo.prePage }">上一页</a></li>
-                                                    </c:when>
-                                                    <c:otherwise>
-                                                        <li><span>首页</span></li>
-                                                        <li><span>上一页</span></li>
-                                                    </c:otherwise>
-                                                </c:choose>
+                                <div class="card-body" >
+                                    <div class="table table-striped" >
+                                        <div id="product" class="main">
+                                            <div class="infos">
+                                                <div class="thumb"><img height="300" width="300" src="<%=basePath %>images/product/${book.image}" /></div>
+                                                <div class="buy">
+                                                    <p>价格：<span class="price">￥${book.pirce}</span></p>
+                                                    <p>作 者：${book.writer}</p>
+                                                    <p>出版社：${book.printer}</p>
+                                                    <p>出版日期：${dateStr}</p>
+                                                </div>
+                                                <div class="clear"></div>
+                                            </div>
+                                            <div class="introduce">
+                                                <h2><strong>商品详情</strong></h2>
+                                                <div class="text">
+                                                    ${book.detail}
+                                                </div>
+                                            </div>
 
-                                                <c:forEach var="index" begin="1" end="${pageInfo.pages }">
-
-                                                    <li
-                                                            <c:if test="${index==pageInfo.pageNum}">class="current"</c:if>><a
-                                                            href="manager_user.do?pageNum=${index }">${index }</a></li>
-                                                </c:forEach>
-
-                                                <c:choose>
-                                                    <c:when test="${pageInfo.hasNextPage}">
-                                                        <li><a href="manager_user.do?pageNum=${pageInfo.nextPage }">下一页</a></li>
-                                                        <li><a href="manager_user.do?pageNum=${pageInfo.pages }">尾页</a></li>
-                                                    </c:when>
-                                                    <c:otherwise>
-                                                        <li><span>下一页</span></li>
-                                                        <li><span>尾页</span></li>
-                                                    </c:otherwise>
-                                                </c:choose>
-                                            </ul>
+                                            <div class="guestbook">
+                                                <h2>商品评价</h2>
+                                                <ul>
+                                                    <c:forEach items="${comments}" var="comment">
+                                                        <li>
+                                                            <dl>
+                                                                <dt>网友：${comment.uname} </dt>
+                                                                <dd>${comment.content}</dd>
+                                                                <dd> <span class="timer">${comment.date}</span></dd>
+                                                            </dl>
+                                                        </li>
+                                                    </c:forEach>
+                                                </ul>
+                                                <div class="clear"></div>
+                                                <c:if test="${comments.size()==0}">
+                                                    <div class="introduce">
+                                                        <div class="text">该商品还没有人写评价呢~</div>
+                                                    </div>
+                                                </c:if>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -188,24 +174,23 @@
                     </div>
                 </div>
             </section>
-                <div class="clear"></div>
+            <div class="clear"></div>
             <footer class="main-footer">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <p>Copyright &copy; 2019. Louxt. All rights reserved.</p>
-                    </div>
-                    <div class="col-sm-6 text-right">
-                        <p></p>
-                        <!-- Please do not remove the backlink to us unless you support further theme's development at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <p>Copyright &copy; 2019. Louxt. All rights reserved.</p>
+                        </div>
+                        <div class="col-sm-6 text-right">
+                            <p></p>
+                            <!-- Please do not remove the backlink to us unless you support further theme's development at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
+                        </div>
                     </div>
                 </div>
-            </div>
-        </footer>
+            </footer>
         </div>
     </div>
 </div>
-
 <!-- JavaScript files-->
 <script src="../../manager_index/vendor/jquery/jquery.min.js"></script>
 <script src="../../manager_index/vendor/popper.js/umd/popper.min.js"> </script>
@@ -216,7 +201,7 @@
 <script src="../../manager_index/js/charts-home.js"></script>
 <script type="text/javascript" src="../../scripts/function-manage.js"></script>
 <%--<!-- Main File-->--%>
-<script src="../../manager_index/js/front.js"></script>
+<script src="../../js/product.js"></script>
 <%--js--%>
 <script src="../../manager_index/js/manager_index.js" ></script>
 </body>

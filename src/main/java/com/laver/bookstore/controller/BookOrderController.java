@@ -168,5 +168,40 @@ public class BookOrderController {
 		return new ModelAndView("/manage/order","model",model);
 	}
 
+	//修改
+	@RequestMapping("/manager_order")
+	public ModelAndView manager_order(Model model, @RequestParam(value = "pageNum",defaultValue = "1") Integer pageNum, String oname, Integer oid, HttpSession session) {
+		Set<Book> books = new HashSet<>();
+		BookOrderExample bookOrderExample = new BookOrderExample();
+		Criteria cri = bookOrderExample.createCriteria();
+
+		if(oid!=null){
+			cri.andOidEqualTo(oid);
+		}
+		session.setAttribute("oid",oid);
+
+		if(StringUtils.isNotEmpty(oname)){
+			cri.andOnameLike("%"+oname+"%");
+		}
+		session.setAttribute("oname",oname);
+		PageHelper.startPage(pageNum, com.laver.bookstore.util.Constant.UO_PAGE_SIZE,"date desc");
+		List<BookOrder> bookOrders = bookOrderService.selectByExample(bookOrderExample);
+		for (BookOrder bookOrder : bookOrders) {
+			OrderDetailExample orderDetailExample = new OrderDetailExample();
+			OrderDetailExample.Criteria detailExampleCriteria = orderDetailExample.createCriteria();
+			detailExampleCriteria.andOrderIdEqualTo(bookOrder.getOid());
+			List<OrderDetail> orderDetails = orderDetailService.selectByExample(orderDetailExample);
+			for (OrderDetail orderDetail : orderDetails) {
+				books.add(bookService.findById(orderDetail.getBookId()));
+			}
+			bookOrder.setOrderDetails(orderDetails);
+		}
+		PageInfo<BookOrder> pageInfo = new PageInfo<>(bookOrders);
+		model.addAttribute("pageInfo", pageInfo);
+		model.addAttribute("bookOrders", bookOrders);
+		model.addAttribute("books", books);
+		return new ModelAndView("/manage/manager_order","model",model);
+	}
+
 
 }

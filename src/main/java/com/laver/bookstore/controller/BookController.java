@@ -117,7 +117,7 @@ public class BookController {
 			book.setImage(null);
 		}
 		bookService.modifyBook(book);
-		return new ModelAndView("redirect:/manaBook.do");
+		return new ModelAndView("redirect:/manager_book.do");
 	}
 	@RequestMapping("/bookView")
 	public String bookView(Integer pageNum,Integer bid,Model model,HttpServletRequest request,HttpServletResponse response){
@@ -238,7 +238,7 @@ public class BookController {
         response.addCookie(cookie);
 	}
 	//修改
-	@RequestMapping("/manager_book")
+	@RequestMapping("/manager_book")//书籍管理页面重写
 	public String manager_book(Integer pageNum,Model model){
 		if(pageNum!=null){
 			PageHelper.startPage(pageNum,com.laver.bookstore.util.Constant.MB_PAGE_SIZE);
@@ -251,4 +251,36 @@ public class BookController {
 		model.addAttribute("books", books);
 		return "manage/manager_book";
 	}
+    @RequestMapping("/manager_bookDetail")//书籍详细页重写
+    public String mananer_bookDetail(Integer pageNum,Integer bid,Model model,HttpServletRequest request,HttpServletResponse response){
+        setCookies(bid, request, response);
+        Book book=bookService.findById(bid);
+        String dateStr=new SimpleDateFormat("yyyy-MM-dd").format(book.getDate());
+        Set<String> bts=bookService.bookType();
+        List<Book> Cbooks =getCookies(request);
+        if(pageNum!=null){
+            PageHelper.startPage(pageNum, com.laver.bookstore.util.Constant.C_PAGE_SIZE);
+        }else{
+            PageHelper.startPage(1,  com.laver.bookstore.util.Constant.C_PAGE_SIZE);
+        }
+        List<Comment> comments = commentService.selectBybid(bid);
+        PageInfo<Comment> pageInfo = new PageInfo<Comment>(comments);
+        model.addAttribute("Cbooks", Cbooks);
+        model.addAttribute("bts", bts);
+        model.addAttribute("book", book);
+        model.addAttribute("dateStr", dateStr);
+        model.addAttribute("comments", comments);
+        model.addAttribute("pageInfo", pageInfo);
+        return "manage/manager_bookDetail";
+    }
+
+	@RequestMapping("/manager_book_modify")//书籍信息界面修改重写
+	public String manager_book_modify(Model model,Integer bid){
+		Book book = bookService.findById(bid);
+		Set<String> bts=bookService.bookType();
+		model.addAttribute("bts", bts);
+		model.addAttribute("book", book);
+		return "manage/manager_book_modify";
+	}
+
 }

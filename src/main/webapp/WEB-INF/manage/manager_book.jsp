@@ -49,6 +49,7 @@
                         <!-- Navbar Brand --><a href="#" class="navbar-brand d-none d-sm-inline-block">
                         <div class="brand-text d-none d-lg-inline-block"><span>Bootstrap </span><strong>Dashboard</strong></div>
                         <div class="brand-text d-none d-sm-inline-block d-lg-none"><strong>BD</strong></div></a>Bookstore
+                        <!-- Toggle Button--><a id="toggle-btn" href="#" class="menu-btn active"><span></span><span></span><span></span></a>
                     </div>
                     <!-- Navbar Menu -->
                     <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
@@ -60,7 +61,7 @@
                             </ul>
                         </li>
                         <!-- Logout    -->
-                        <li class="nav-item"><a href="backLoginPage.do" class="nav-link logout"> <span class="d-none d-sm-inline">Logout</span><i class="fa fa-sign-out"></i></a></li>
+                        <li class="nav-item"><a class="nav-link logout" onclick="logout()"> <span class="d-none d-sm-inline">Logout</span><i class="fa fa-sign-out"></i></a></li>
                     </ul>
                 </div>
             </div>
@@ -73,7 +74,7 @@
             <div class="sidebar-header d-flex align-items-center">
                 <div class="avatar"><img src="../../manager_index/img/timg.jpg" alt="..." class="img-fluid rounded-circle"></div>
                 <div class="title">
-                    <h1 class="h4">Mark Stephen</h1>
+                    <h1 class="h4">Fluctlight</h1>
                     <p>Web Designer</p>
                 </div>
             </div>
@@ -82,7 +83,7 @@
                 <li ><a href="/manager_index.do"> <i class="icon-home"></i>Home </a></li>
                 <li ><a id="users" href="/manager_user.do"> <i class="icon-grid" ></i>Users </a> </li>
                 <li class="active"><a id="books" href="#"> <i class="fa fa-bar-chart"></i>Books </a></li>
-                <li><a id="orders" href="/allBookOrder.do"> <i class="icon-padnote"></i>Orders </a></li>
+                <li><a id="orders" href="/manager_order.do"> <i class="icon-padnote"></i>Orders </a></li>
                 <%--<li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>Example dropdown </a>--%>
                     <%--<ul id="exampledropdownDropdown" class="collapse list-unstyled ">--%>
                         <%--<li><a href="#">Page</a></li>--%>
@@ -103,7 +104,7 @@
         <!-- Page Header-->
         <header class="page-header">
             <div class="container-fluid">
-                <h2 class="no-margin-bottom">主页</h2>
+                <h2 class="no-margin-bottom">书籍</h2>
             </div>
         </header>
             <section class="tables">
@@ -123,7 +124,7 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="table table-striped">
-                                        <table class="table" id="user_table">
+                                        <table class="table" id="book_table">
                                             <tr>
                                                 <th>ID</th>
                                                 <th>商品名称</th>
@@ -131,8 +132,10 @@
                                             </tr>
                                             <c:forEach var="book" items="${books}">
                                                 <tr><td class="first w4 c">${book.bid }</td>
-                                                    <td class="thumb"><img height="77" width="77" src="../../images/product/${book.image }" /><a href="../product-view.html" target="_blank">${book.bname }</a></td>
-                                                    <td class="w1 c"><a href="modifyBookPage.do?bid=${book.bid}">修改</a> <a href="delBook.do?bid=${book.bid}">删除</a></td>
+                                                    <td class="thumb"><img height="77" width="77" src="../../images/product/${book.image }" /><a href="manager_bookDetail.do?bid=${book.bid}" target="_blank" >${book.bname }</a></td>
+                                                    <td class="w1 c"><a href="manager_book_modify.do?bid=${book.bid}">修改</a>
+                                                        <%--<a href="delBook.do?bid=${book.bid}">删除</a>--%>
+                                                    </td>
                                                 </tr>
                                             </c:forEach>
                                         </table>
@@ -162,7 +165,7 @@
                                                         <li><a href="manager_book.do?pageNum=${pageInfo.pages }">尾页</a></li>
                                                     </c:when>
                                                     <c:otherwise>
-                                                        <li><span>下一页</span>下一页</li>
+                                                        <li><span>下一页</span></li>
                                                         <li><span>尾页</span></li>
                                                     </c:otherwise>
                                                 </c:choose>

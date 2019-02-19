@@ -1,6 +1,13 @@
 <%--
   Created by IntelliJ IDEA.
   User: admin
+  Date: 2019/2/19
+  Time: 11:33
+  To change this template use File | Settings | File Templates.
+--%>
+<%--
+  Created by IntelliJ IDEA.
+  User: admin
   Date: 2019/1/26
   Time: 16:26
   To change this template use File | Settings | File Templates.
@@ -61,7 +68,7 @@
                             </ul>
                         </li>
                         <!-- Logout    -->
-                        <li class="nav-item"><a  class="nav-link logout" onclick="logout()"> <span class="d-none d-sm-inline">Logout</span><i class="fa fa-sign-out"></i></a></li>
+                        <li class="nav-item"><a class="nav-link logout" onclick="logout()"> <span class="d-none d-sm-inline">Logout</span><i class="fa fa-sign-out"></i></a></li>
                     </ul>
                 </div>
             </div>
@@ -81,15 +88,15 @@
             <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
             <ul class="list-unstyled">
                 <li ><a href="/manager_index.do"> <i class="icon-home"></i>Home </a></li>
-                <li class="active"><a id="users" href="#"> <i class="icon-grid" ></i>Users </a> </li>
-                <li><a id="books" href="/manager_book.do"> <i class="fa fa-bar-chart"></i>Books </a></li>
-                <li><a id="orders" href="/manager_order.do"> <i class="icon-padnote"></i>Orders </a></li>
+                <li ><a id="users" href="/manager_user.do"> <i class="icon-grid" ></i>Users </a> </li>
+                <li ><a id="books" href="/manager_book.do"> <i class="fa fa-bar-chart"></i>Books </a></li>
+                <li class="active"><a id="orders" href="#"> <i class="icon-padnote"></i>Orders </a></li>
                 <%--<li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>Example dropdown </a>--%>
-                    <%--<ul id="exampledropdownDropdown" class="collapse list-unstyled ">--%>
-                        <%--<li><a href="#">Page</a></li>--%>
-                        <%--<li><a href="#">Page</a></li>--%>
-                        <%--<li><a href="#">Page</a></li>--%>
-                    <%--</ul>--%>
+                <%--<ul id="exampledropdownDropdown" class="collapse list-unstyled ">--%>
+                <%--<li><a href="#">Page</a></li>--%>
+                <%--<li><a href="#">Page</a></li>--%>
+                <%--<li><a href="#">Page</a></li>--%>
+                <%--</ul>--%>
                 <%--</li>--%>
                 <%--<li><a href="#"> <i class="icon-interface-windows"></i>Login page </a></li>--%>
             </ul><span class="heading">Extras</span>
@@ -101,12 +108,12 @@
             </ul>
         </nav>
         <div class="content-inner">
-        <!-- Page Header-->
-        <header class="page-header">
-            <div class="container-fluid">
-                <h2 class="no-margin-bottom">用户</h2>
-            </div>
-        </header>
+            <!-- Page Header-->
+            <header class="page-header">
+                <div class="container-fluid">
+                    <h2 class="no-margin-bottom">订单</h2>
+                </div>
+            </header>
             <section class="tables">
                 <div class="container-fluid">
                     <div class="row">
@@ -120,41 +127,58 @@
                                     </div>
                                 </div>
                                 <div class="card-header d-flex align-items-center">
-                                    <h3 class="h4">User Table</h3>
+                                    <h3 class="h4">Order Table</h3>
                                 </div>
                                 <div class="card-body">
-                                    <div class="table table-striped">
-                                        <table class="table" id="user_table">
-                                            <tr>
-                                                <th>uid</th>
-                                                <th>Username</th>
-                                                <th>Password</th>
-                                                <th>Phone</th>
-                                                <th>Email</th>
-                                                <th>Adress</th>
-                                                <th>Operating</th>
-                                            </tr>
-                                            <c:forEach var="user" items="${users}">
-                                                <tr>
-                                                    <td >${user.uid}</td>
-                                                    <td >${user.uname}</td>
-                                                    <td >${user.password}</td>
-                                                    <td>${user.phone}</td>
-                                                    <td >${user.email}</td>
-                                                    <td >${user.adress}</td>
-                                                    <td >
-                                                        <a href="manager_user_modify.do?uid=${user.uid}">修改</a>
-                                                         <%--<a href="delUser.do?uid=${user.uid}">删除</a>--%>
-                                                    </td>
+                                    <div class="manage">
+                                        <div class="search">
+                                            <form id="searchInput" method="post" action="manager_order.do" class="form-inline">
+                                                <div class="form-group">
+                                                    <label for="oid">订单号：</label>
+                                                    <%--<input type="text" class="form-control" id="exampleInputName2" placeholder="Jane Doe">--%>
+                                                    <input class="form-control" type="text" id="oid" name="oid" value="${sessionScope.oid}"/>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="oname">收货人：</label>
+                                                    <%--<input type="email" class="form-control" id="exampleInputEmail2" placeholder="jane.doe@example.com">--%>
+                                                    <input class="form-control" type="text" class="text" id="oname" name="oname" value="${sessionScope.oname}"/>
+                                                </div>
+                                                <%--订单号：<input class="form-control" type="text" class="text" id="oid" name="oid" /> 收货人：<input class="form-control" type="text" class="text" id="oname" name="oname" /> --%>
+                                                <input type="button" onclick="submit()" class="btn btn-info" value="搜索">
+                                            </form>
+                                        </div>
+                                        <div class="spacer"></div>
+                                        <table class="table table-hover">
+                                            <c:forEach items="${bookOrders}" var="bookOrder">
+                                                <tr class="active ">
+                                                    <td class="first w4 c">订单号:${bookOrder.oid}</td>
+                                                    <td class="w1 c">${bookOrder.date}</td>
+                                                    <td class="w1 c">收货人:${bookOrder.oname}</td>
+                                                    <td>收货地址：${bookOrder.adress}</td>
+                                                    <td class="w1 c"><a href="orderModifyPage.do?oid=${bookOrder.oid}">修改</a> <a
+                                                            href="delserchBookOrder.do?oid=${bookOrder.oid}">删除</a></td>
                                                 </tr>
+                                                <c:forEach items="${bookOrder.orderDetails}" var="orderDetail">
+                                                    <c:forEach items="${books }" var="book">
+                                                        <c:if test="${book.bid==orderDetail.bookId }">
+                                                            <tr>
+                                                                <td class="first w4 c">${book.bname }</td>
+                                                                <td class="w1 c"><img height="80" width="80" src="../../images/product/${book.image}"></td>
+                                                                <td class="w1 c">数量：${orderDetail.bookNum }</td>
+                                                                <td>￥${book.pirce*orderDetail.bookNum }</td>
+                                                                <td class="w1 c">${bookOrder.status }</td>
+                                                            </tr>
+                                                        </c:if>
+                                                    </c:forEach>
+                                                </c:forEach>
                                             </c:forEach>
                                         </table>
                                         <div class="pager">
                                             <ul class="clearfix">
                                                 <c:choose>
                                                     <c:when test="${pageInfo.hasPreviousPage}">
-                                                        <li><a href="manager_user.do?pageNum=1">首页</a></li>
-                                                        <li><a href="manager_user.do?pageNum=${pageInfo.prePage }">上一页</a></li>
+                                                        <li><a href="manager_order.do?pageNum=1">首页</a></li>
+                                                        <li><a href="manager_order.do?pageNum=${pageInfo.prePage }">上一页</a></li>
                                                     </c:when>
                                                     <c:otherwise>
                                                         <li><span>首页</span></li>
@@ -166,13 +190,13 @@
 
                                                     <li
                                                             <c:if test="${index==pageInfo.pageNum}">class="current"</c:if>><a
-                                                            href="manager_user.do?pageNum=${index }">${index }</a></li>
+                                                            href="manager_order.do?pageNum=${index }">${index }</a></li>
                                                 </c:forEach>
 
                                                 <c:choose>
                                                     <c:when test="${pageInfo.hasNextPage}">
-                                                        <li><a href="manager_user.do?pageNum=${pageInfo.nextPage }">下一页</a></li>
-                                                        <li><a href="manager_user.do?pageNum=${pageInfo.pages }">尾页</a></li>
+                                                        <li><a href="manager_order.do?pageNum=${pageInfo.nextPage }">下一页</a></li>
+                                                        <li><a href="manager_order.do?pageNum=${pageInfo.pages }">尾页</a></li>
                                                     </c:when>
                                                     <c:otherwise>
                                                         <li><span>下一页</span></li>
@@ -188,20 +212,20 @@
                     </div>
                 </div>
             </section>
-                <div class="clear"></div>
+            <div class="clear"></div>
             <footer class="main-footer">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <p>Copyright &copy; 2019. Louxt. All rights reserved.</p>
-                    </div>
-                    <div class="col-sm-6 text-right">
-                        <p></p>
-                        <!-- Please do not remove the backlink to us unless you support further theme's development at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <p>Copyright &copy; 2019. Louxt. All rights reserved.</p>
+                        </div>
+                        <div class="col-sm-6 text-right">
+                            <p></p>
+                            <!-- Please do not remove the backlink to us unless you support further theme's development at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
+                        </div>
                     </div>
                 </div>
-            </div>
-        </footer>
+            </footer>
         </div>
     </div>
 </div>
@@ -218,7 +242,10 @@
 <%--<!-- Main File-->--%>
 <script src="../../manager_index/js/front.js"></script>
 <%--js--%>
+<script type="text/javascript" src="../../manager_index/js/manager_order.js"></script>
 <script src="../../manager_index/js/manager_index.js" ></script>
+
 </body>
 
 </html>
+

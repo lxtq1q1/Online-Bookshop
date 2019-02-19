@@ -82,21 +82,6 @@
 								</c:if>
 								</c:forEach>
 							</c:forEach>
-							<%--<c:forEach items="${orderDetails }" var="orderDetail">--%>
-							<%--<c:if test="${bookOrder.oid==orderDetail.orderId}">--%>
-								<%--<c:forEach items="${books }" var="book">--%>
-								<%--<c:if test="${book.bid==orderDetail.bookId }">--%>
-										<%--<tr>--%>
-											<%--<td class="first w4 c">${book.bname }</td>--%>
-											<%--<td class="w1 c"><img height="80" width="80" src="../../images/product/${book.image}"></td>--%>
-											<%--<td class="w1 c">数量：${orderDetail.bookNum }</td>--%>
-											<%--<td>￥${book.pirce*orderDetail.bookNum }</td>--%>
-											<%--<td class="w1 c">${bookOrder.status }</td>--%>
-										<%--</tr> --%>
-								<%--</c:if>--%>
-								<%--</c:forEach>--%>
-							<%--</c:if>--%>
-							<%--</c:forEach>--%>
 					</c:forEach>
 				</table>
 			<div class="pager">
