@@ -125,7 +125,7 @@ public class BookOrderController {
 		bookOrder.setAdress(address);
 		bookOrder.setStatus(status);
 		bookOrderService.update(bookOrder);
-		return new ModelAndView("redirect:/BookOrder.do");
+		return new ModelAndView("redirect:/manager_order.do");
 	}
 	@RequestMapping("/orderModifyPage")
 	public String orderModifyPage(Integer oid,Model model){
@@ -203,5 +203,13 @@ public class BookOrderController {
 		return new ModelAndView("/manage/manager_order","model",model);
 	}
 
+
+	//修改
+	@RequestMapping("/manager_order_modify")
+	public String manager_order_modify(Integer oid,Model model){
+		BookOrder bookOrder = bookOrderService.selectByPrimaryKey(oid);
+		model.addAttribute("bookOrder", bookOrder);
+		return "manage/manager_order_modify";
+	}
 
 }

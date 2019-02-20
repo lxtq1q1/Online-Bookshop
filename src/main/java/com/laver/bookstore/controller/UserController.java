@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Set;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import com.sun.xml.internal.bind.v2.runtime.reflect.opt.Const;
 import org.springframework.stereotype.Controller;
@@ -28,7 +29,7 @@ import com.laver.bookstore.service.IBookOrderService;
 import com.laver.bookstore.service.IBookService;
 import com.laver.bookstore.service.IOrderDetailService;
 import com.laver.bookstore.service.IUserService;
-
+import com.laver.bookstore.util.MD5Utils;
 @Controller
 public class UserController {
 	
@@ -65,7 +66,8 @@ public class UserController {
         }
         User user=new User();
         user.setUname(userName);
-        user.setPassword(passWord);
+        String md5Pwd = MD5Utils.encode(passWord);
+        user.setPassword(md5Pwd);
         if(userService.userLogin(user).getUid()!=null){
             User sessionUser=userService.userLogin(user);
             sessionUser.setPassword("");
@@ -95,10 +97,11 @@ public class UserController {
         return "manage/user-modify";
     }
     @RequestMapping("/modifyUser")
-    public ModelAndView manaUser(Integer uid,String userName,String password,String gender,String email,String phone,String address){
+    public ModelAndView modifyUser(Integer uid,String uname,String password,String gender,String email,String phone,String address){
         User user=new User();
         user.setUid(uid);
-        user.setUname(userName);
+        user.setUname(uname);
+        //String md5Password = MD5Utils.encode(password);
         user.setPassword(password);
         user.setGender(gender);
         user.setEmail(email);
@@ -108,19 +111,22 @@ public class UserController {
         return new ModelAndView("redirect:/manager_user.do");
     }
     @RequestMapping("/delUser")
-    public ModelAndView deleteUser(Integer uid){
-        userService.deleteByUid(uid);
-        return new ModelAndView("redirect:/manaUser.do");
+    public ModelAndView delUser(Integer uid){
+        userService.deleteById(uid);
+        return new ModelAndView("redirect:/manager_user.do");
     }
     @RequestMapping("/addUser")
-    public ModelAndView addUser(String userName,String passWord,String gender,String email,String phone,String address){
+    public ModelAndView addUser(String uname, String passWord, String gender, String email, String phone, String address){
+
         User user = new User();
-        user.setUname(userName);
+        user.setUname(uname);
+        //String md5Pwd = MD5Utils.encode(passWord);
         user.setPassword(passWord);
         user.setGender(gender);
         user.setEmail(email);
         user.setPhone(phone);
         user.setAdress(address);
+
         userService.addUser(user);
         return new ModelAndView("redirect:/manaUser.do");
     }
@@ -194,12 +200,12 @@ public class UserController {
 
     //修改
     @RequestMapping("backLoginPage")//后台登陆重写
-    public String loginPage(){
+    public String backLoginPage(){
         return "manage/manager_login";//后台登陆manager_login.jsp
 
     }
     @RequestMapping("backLogin")//登陆验证重写
-    public String login(HttpSession session,String username, String password,Model model) {
+    public String backLogin(HttpSession session,String username, String password,Model model) {
         if (!StringUtils.isEmpty(username) && !StringUtils.isEmpty(password)) {//如果username/password不为空且username=admin&&password=admin,返回index,jsp
             if (password.equals("1") && username.equals("sysadmin")) {
                 session.setAttribute("sysadmin","1"	);
@@ -235,6 +241,19 @@ public class UserController {
         User user = userService.findUserById(uid);
         model.addAttribute("user", user);
         return "manage/manager_user_modify";
+    }
+
+    @RequestMapping("/manager_user_add")
+    public ModelAndView manager_user_add(String uname,String passWord,String gender,String email,String phone,String address){
+        User user = new User();
+        user.setUname(uname);
+        user.setPassword(passWord);
+        user.setGender(gender);
+        user.setEmail(email);
+        user.setPhone(phone);
+        user.setAdress(address);
+        userService.addUser(user);
+        return new ModelAndView("redirect:/manager_user.do");
     }
 
 

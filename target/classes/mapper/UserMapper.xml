@@ -242,9 +242,6 @@
     where uid = #{uid,jdbcType=INTEGER}
   </update>
 
-  <delete id="deleteByUid" parameterType="com.laver.bookstore.domain.User" >
-    update user set is_valid ='0' where uid=#{uid}
-  </delete>
 
 
 </mapper>

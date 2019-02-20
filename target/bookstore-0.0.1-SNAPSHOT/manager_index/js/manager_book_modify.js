@@ -1,3 +1,3 @@
 function cancel(){
-    window.location.href="/manager_book.do";
+    window.location.href="/manager_book.do?";
 }

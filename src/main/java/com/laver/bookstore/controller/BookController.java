@@ -55,7 +55,7 @@ public class BookController {
 	}
 	
 	@RequestMapping("/addBook")
-	public ModelAndView addUser(String bname,String detail,String pirce,String type,String writer,String printer,String dateString,String image,Integer store){
+	public ModelAndView addBook(String bname,String detail,String pirce,String type,String writer,String printer,String dateString,String image,Integer store){
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");  
 	    Date date = null;
 		try {
@@ -75,7 +75,7 @@ public class BookController {
 		book.setImage(image);
 		book.setStore(store);
 		bookService.addBook(book);
-		return new ModelAndView("redirect:/manaBook.do");
+		return new ModelAndView("redirect:/manager_book.do");
 	}
 	
 	@RequestMapping("/manaBook")
@@ -92,12 +92,12 @@ public class BookController {
 		return "manage/product";
 	}
 	@RequestMapping("/delBook")
-	public ModelAndView deleteUser(Integer bid){
+	public ModelAndView delBook(Integer bid){
 		bookService.delById(bid);
 		return new ModelAndView("redirect:/manaBook.do");
 	}
 	@RequestMapping("/modifyBookPage")
-	public String modifyUserPage(Model model,Integer bid){
+	public String modifyBookPage(Model model,Integer bid){
 		Book book = bookService.findById(bid);
 		Set<String> bts=bookService.bookType();
 		model.addAttribute("bts", bts);
@@ -110,15 +110,7 @@ public class BookController {
 		model.addAttribute("bts", bts);
 		return "manage/product-add";
 	}
-	@RequestMapping("/modifyBook")
-	public ModelAndView modifyBook(Book book){
 
-		if (book.getImage().equals("")){
-			book.setImage(null);
-		}
-		bookService.modifyBook(book);
-		return new ModelAndView("redirect:/manager_book.do");
-	}
 	@RequestMapping("/bookView")
 	public String bookView(Integer pageNum,Integer bid,Model model,HttpServletRequest request,HttpServletResponse response){
 		setCookies(bid, request, response);
@@ -283,4 +275,40 @@ public class BookController {
 		return "manage/manager_book_modify";
 	}
 
+	@RequestMapping("/manager_book_add")
+	public String manager_book_add(Model model){
+		Set<String> bts=bookService.bookType();
+		model.addAttribute("bts", bts);
+		return "manage/manager_book_add";
+	}
+
+
+	@RequestMapping("/modifyBook")
+	public ModelAndView modifyBook(Integer bid,String bname,String detail,String pirce,String type,String writer,String printer,String dateString,String image,Integer store){
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		Date date = null;
+		try {
+			date = sdf.parse(dateString);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		Book book = new Book();
+		book.setBid(bid);
+		book.setBname(bname);
+		book.setDetail(detail);
+		book.setPirce(pirce);
+		book.setType(type);
+		book.setWriter(writer);
+		book.setPrinter(printer);
+		book.setDate(date);
+		book.setStore(store);
+
+		if (image.equals("")){
+			book.setImage(null);
+		}
+		System.out.println("**********"+book);
+		bookService.modifyBook(book);
+		return new ModelAndView("redirect:/manager_book.do");
+	}
 }

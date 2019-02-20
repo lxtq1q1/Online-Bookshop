@@ -13,7 +13,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>书籍信息修改</title>
+    <title>Book Modify</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="robots" content="all,follow">
@@ -36,7 +36,7 @@
     <!-- Tweaks for older IEs--><!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
-    <link type="text/css" rel="stylesheet" href="../../css/style.css"/>
+    <%--<link type="text/css" rel="stylesheet" href="../../css/style.css"/>--%>
 </head>
 <body>
 <div class="page">
@@ -57,8 +57,7 @@
                         <!-- Languages dropdown    -->
                         <li class="nav-item dropdown"><a id="languages" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link language dropdown-toggle"><img src="../../manager_index/img/flags/16/GB.png" alt="English"><span class="d-none d-sm-inline-block">English</span></a>
                             <ul aria-labelledby="languages" class="dropdown-menu">
-                                <li><a rel="nofollow" href="#" class="dropdown-item"> <img src="../../manager_index/img/flags/16/DE.png" alt="English" class="mr-2">German</a></li>
-                                <li><a rel="nofollow" href="#" class="dropdown-item"> <img src="../../manager_index/img/flags/16/FR.png" alt="English" class="mr-2">French                                         </a></li>
+                                <li><a rel="nofollow" href="#" class="dropdown-item"> <img src="../../manager_index/img/flags/16/CN.png" alt="English" class="mr-2">Chinese</a></li>
                             </ul>
                         </li>
                         <!-- Logout    -->
@@ -184,7 +183,7 @@
                                             <div class="form-group row">
                                                 <label class="col-sm-3 form-control-label">出版日期:</label>
                                                 <div class="col-sm-9">
-                                                    <input type="text" class="Wdate" name="dateString" value="<fmt:formatDate value="${book.date}" type="date"/>">
+                                                    <input type="text" class="Wdate" name="dateString" onClick="WdatePicker()" value="<fmt:formatDate value="${book.date}"  type="date"/>">
                                                 </div>
                                             </div>
                                             <div class="line"></div>
@@ -244,12 +243,12 @@
 <script src="../../manager_index/vendor/chart.js/Chart.min.js"></script>
 <script src="../../manager_index/vendor/jquery-validation/jquery.validate.min.js"></script>
 <script src="../../manager_index/js/charts-home.js"></script>
-<script type="text/javascript" src="../../scripts/function-manage.js"></script>
 <%--<!-- Main File-->--%>
 <script src="../../manager_index/js/front.js"></script>
 <%--js--%>
 <script type="text/javascript" src="../../manager_index/js/manager_book_modify.js"></script>
 <script src="../../manager_index/js/manager_index.js" ></script>
+<script type="text/javascript" src="../../scripts/WdatePicker.js"></script>
 </body>
 
 </html>

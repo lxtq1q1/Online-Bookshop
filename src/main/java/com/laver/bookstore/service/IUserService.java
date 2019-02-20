@@ -25,6 +25,6 @@ public interface IUserService {
     boolean updatePwd(Integer uid,String password,String newPassword);
 
     //改写
-    int deleteByUid(Integer udi);
+
 
 }

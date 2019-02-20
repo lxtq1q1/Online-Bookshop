@@ -128,11 +128,7 @@ public class UserService implements IUserService{
 
 
     //改写
-    @Override
-    public int deleteByUid(Integer uid) {
-        // TODO Auto-generated method stub
-        return userMapper.deleteByUid(uid);
-    }
+
 
 
 }
