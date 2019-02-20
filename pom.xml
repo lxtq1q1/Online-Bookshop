@@ -19,6 +19,12 @@
 			<version>4.11</version>
 			<scope>test</scope>
 		</dependency>
+		<!--log4j-->
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
+		</dependency>
 		<!-- 引入spring核心包 -->
 		<dependency>
 			<groupId>org.springframework</groupId>

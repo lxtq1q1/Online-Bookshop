@@ -11,18 +11,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="746f3667-af67-4fe8-a3d4-e5120a2ca057" name="Default" comment="2019/2/19 17-55">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__log4j_log4j_1_2_17.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/log4j.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/bookstore_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/bookstore_war_exploded.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bookstore-0.0.1-SNAPSHOT/WEB-INF/classes/com/laver/bookstore/controller/BookController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/bookstore-0.0.1-SNAPSHOT/WEB-INF/classes/com/laver/bookstore/controller/BookController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bookstore-0.0.1-SNAPSHOT/WEB-INF/classes/com/laver/bookstore/controller/BookOrderController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/bookstore-0.0.1-SNAPSHOT/WEB-INF/classes/com/laver/bookstore/controller/BookOrderController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bookstore-0.0.1-SNAPSHOT/WEB-INF/classes/com/laver/bookstore/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/bookstore-0.0.1-SNAPSHOT/WEB-INF/classes/com/laver/bookstore/controller/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bookstore-0.0.1-SNAPSHOT/WEB-INF/manage/manager_index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bookstore-0.0.1-SNAPSHOT/WEB-INF/manage/manager_index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bookstore-0.0.1-SNAPSHOT/WEB-INF/manage/order.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bookstore-0.0.1-SNAPSHOT/WEB-INF/manage/order.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bookstore-0.0.1-SNAPSHOT/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/bookstore-0.0.1-SNAPSHOT/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bookstore-0.0.1-SNAPSHOT/js/order.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/bookstore-0.0.1-SNAPSHOT/js/order.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bookstore-0.0.1-SNAPSHOT/manager_index/js/manager_index.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/bookstore-0.0.1-SNAPSHOT/manager_index/js/manager_index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/laver/bookstore/controller/BookController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/laver/bookstore/controller/BookController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/laver/bookstore/controller/BookOrderController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/laver/bookstore/controller/BookOrderController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/laver/bookstore/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/laver/bookstore/controller/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bookstore.iml" beforeDir="false" afterPath="$PROJECT_DIR$/bookstore.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -65,7 +59,26 @@
     <favorites_list name="empmvc141" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="380">
+              <caret line="26" column="21" selection-start-line="26" selection-start-column="21" selection-end-line="26" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/log4j.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="304">
+              <caret line="16" column="77" selection-start-line="16" selection-start-column="77" selection-end-line="16" selection-end-column="77" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -135,8 +148,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/front/user-order.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/js/login.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/front/login.jsp" />
         <option value="$PROJECT_DIR$/src/main/resources/db.properties" />
         <option value="$PROJECT_DIR$/src/main/webapp/adminLogin/index.html" />
@@ -186,6 +197,8 @@
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/manage/manager_user_modify.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/manage/product-modify.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/manage/manager_book_modify.jsp" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/log4j.properties" />
       </list>
     </option>
   </component>
@@ -215,6 +228,11 @@
           <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
           <item name="bookstore Maven Webapp" type="9519ce18:MavenProjectsStructure$ProjectNode" />
         </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="bookstore Maven Webapp" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Dependencies" type="f4be9f2a:MavenProjectsStructure$DependenciesNode" />
+        </path>
       </expand>
       <select />
     </treeState>
@@ -223,9 +241,9 @@
     <option name="jreName" value="1.8" />
     <option name="vmOptions" value="-DarchetypeCatalog=internal" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="535" />
-    <option name="y" value="106" />
+    <option name="y" value="105" />
     <option name="width" value="980" />
     <option name="height" value="1040" />
   </component>
@@ -237,6 +255,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -284,6 +303,13 @@
               <item name="bookstore-master" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bookstore" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bookstore-master" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -324,7 +350,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -333,7 +358,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550570144523" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550629312818" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../git/Git/bin/git.exe" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -701,7 +726,8 @@
       <workItem from="1550136121780" duration="2316000" />
       <workItem from="1550213553133" duration="2101000" />
       <workItem from="1550452459734" duration="19262000" />
-      <workItem from="1550540563332" duration="20623000" />
+      <workItem from="1550540563332" duration="20808000" />
+      <workItem from="1550625325943" duration="2003000" />
     </task>
     <task id="LOCAL-00001" summary="update head.html">
       <created>1537023920163</created>
@@ -833,7 +859,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="248661000" />
+    <option name="totallyTimeSpent" value="250849000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -846,6 +872,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Nl-Palette" order="0" />
       <window_info id="Capture Tool" order="1" />
@@ -853,14 +880,14 @@
       <window_info id="UI Designer" order="3" />
       <window_info id="Image Layers" order="4" />
       <window_info id="Favorites" order="5" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="6" visible="true" weight="0.21648793" />
+      <window_info content_ui="combo" id="Project" order="6" visible="true" weight="0.2191689" />
       <window_info id="Structure" order="7" weight="0.25" />
       <window_info id="Web" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Event Log" order="0" side_tool="true" weight="0.32956153" />
       <window_info anchor="bottom" id="Version Control" order="1" weight="0.32577905" />
       <window_info anchor="bottom" id="Terminal" order="2" weight="0.32956153" />
       <window_info anchor="bottom" id="Message" order="3" />
-      <window_info anchor="bottom" id="Run" order="4" weight="0.23796034" />
+      <window_info active="true" anchor="bottom" id="Run" order="4" visible="true" weight="0.4362606" />
       <window_info anchor="bottom" id="Debug" order="5" weight="0.2660152" />
       <window_info anchor="bottom" id="Cvs" order="6" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="7" weight="0.4" />
@@ -922,10 +949,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/images/product/test.jpg" />
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/images/product/43.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/images/product/42.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -1239,6 +1262,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="88">
           <caret line="63" column="48" selection-start-line="63" selection-start-column="48" selection-end-line="63" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="26" column="21" selection-start-line="26" selection-start-column="21" selection-end-line="26" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/log4j.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="16" column="77" selection-start-line="16" selection-start-column="77" selection-end-line="16" selection-end-column="77" />
         </state>
       </provider>
     </entry>
