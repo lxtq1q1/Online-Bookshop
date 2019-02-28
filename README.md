@@ -9,6 +9,7 @@
   控制器：springMVC <br>
   Dependence Injection:spring<br>
   ORM:mybatis<br>
+  日志：log4j<br>
 
 数据库：mysql
 
