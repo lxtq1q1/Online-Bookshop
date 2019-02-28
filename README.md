@@ -7,7 +7,7 @@
   Dependence Injection:spring<br>
   ORM:mybatis<br>
   日志：log4j<br>
-  前端：Bootstrap<br>
+  前端：Bootstrap JQuery<br>
   数据库：mysql<br>
 
 
