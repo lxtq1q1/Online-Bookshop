@@ -35,7 +35,8 @@
     <!-- Tweaks for older IEs--><!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
-    <%--<link type="text/css" rel="stylesheet" href="../../css/style.css"/>--%>
+    <%--ui css--%>
+    <%--<link rel="stylesheet" href="../../manager_index/assets/css/bootstrap.css">--%>
 </head>
 <body>
 <div class="page">
@@ -184,9 +185,11 @@
                                             <div class="line"></div>
                                             <div class="form-group row">
                                                 <div class="col-sm-4 offset-sm-3">
-                                                    <button type="reset" class="btn btn-primary">Reset</button>
-                                                    <button type="submit" class="btn btn-primary" name="submit" >Update</button>
-                                                    <input type="button" value="Cancel" onclick="cancel()" class="btn btn-primary">
+
+                                                    <button type="reset" class="btn btn-default"><i class=" fa fa-refresh "></i> 重置</button>
+                                                    <button type="submit" class="btn btn-primary"><i class="fa fa-edit "></i> 更新</button>
+                                                    <button class="btn btn-danger" onclick="cancel()"><i class="fa fa-pencil"></i> 取消</button>
+
                                                 </div>
                                             </div>
                                         </form>

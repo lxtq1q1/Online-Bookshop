@@ -5,13 +5,6 @@
   Time: 11:33
   To change this template use File | Settings | File Templates.
 --%>
-<%--
-  Created by IntelliJ IDEA.
-  User: admin
-  Date: 2019/1/26
-  Time: 16:26
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8" isELIgnored="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -143,7 +136,7 @@
                                                     <input class="form-control" type="text" class="text" id="oname" name="oname" value="${sessionScope.oname}"/>
                                                 </div>
                                                 <%--订单号：<input class="form-control" type="text" class="text" id="oid" name="oid" /> 收货人：<input class="form-control" type="text" class="text" id="oname" name="oname" /> --%>
-                                                <input type="button" onclick="submit()" class="btn btn-info" value="搜索">
+                                                <input type="button" onclick="submit()" class="btn btn-info" value="Find">
                                             </form>
                                         </div>
                                         <div class="spacer"></div>
@@ -154,7 +147,7 @@
                                                     <td class="w1 c">${bookOrder.date}</td>
                                                     <td class="w1 c">收货人:${bookOrder.oname}</td>
                                                     <td>收货地址：${bookOrder.adress}</td>
-                                                    <td class="w1 c"><a href="manager_order_modify.do?oid=${bookOrder.oid}" target="_blank">修改</a> <a
+                                                    <td class="w1 c"><a href="manager_order_modify.do?oid=${bookOrder.oid}" class="btn btn-primary">修改</a> <a
                                                             <%--href="delserchBookOrder.do?oid=${bookOrder.oid}">删除</a>--%>
                                                     </td>
                                                 </tr>

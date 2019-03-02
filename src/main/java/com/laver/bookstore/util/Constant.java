@@ -4,7 +4,7 @@ public class Constant {
 
 	public static final int MB_PAGE_SIZE = 7;
 	public static final int MU_PAGE_SIZE = 7;
-	public static final int PW_PAGE_SIZE = 7;
+	public static final int PW_PAGE_SIZE = 8;
 	public static final int C_PAGE_SIZE = 3;
 	public static final int UO_PAGE_SIZE = 5;
 //	public static final int PAGE_SIZE = 3;

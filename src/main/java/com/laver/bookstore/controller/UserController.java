@@ -76,26 +76,6 @@ public class UserController {
         }
         return "false";
     }
-    @RequestMapping("/manaUser")
-    public String manaUser(Integer pageNum,Model model){
-        if(pageNum!=null){
-            PageHelper.startPage(pageNum,com.laver.bookstore.util.Constant.MU_PAGE_SIZE);
-        }else{
-            PageHelper.startPage(1, com.laver.bookstore.util.Constant.MU_PAGE_SIZE);
-        }
-        List<User> users = userService.findAllUser();
-        PageInfo<User> pageInfo = new PageInfo<User>(users);
-        model.addAttribute("pageInfo", pageInfo);
-        model.addAttribute("users", users);
-        return "manage/user";
-    }
-
-    @RequestMapping("/modifyUserPage")
-    public String modifyUserPage(Model model,Integer uid){
-        User user = userService.findUserById(uid);
-        model.addAttribute("user", user);
-        return "manage/user-modify";
-    }
     @RequestMapping("/modifyUser")
     public ModelAndView modifyUser(Integer uid,String uname,String password,String gender,String email,String phone,String address){
         User user=new User();
@@ -115,22 +95,6 @@ public class UserController {
         userService.deleteById(uid);
         return new ModelAndView("redirect:/manager_user.do");
     }
-    @RequestMapping("/addUser")
-    public ModelAndView addUser(String uname, String passWord, String gender, String email, String phone, String address){
-
-        User user = new User();
-        user.setUname(uname);
-        //String md5Pwd = MD5Utils.encode(passWord);
-        user.setPassword(passWord);
-        user.setGender(gender);
-        user.setEmail(email);
-        user.setPhone(phone);
-        user.setAdress(address);
-
-        userService.addUser(user);
-        return new ModelAndView("redirect:/manaUser.do");
-    }
-
     @RequestMapping("/updateUserPage")
     public String updateUserPage(Model model,HttpSession session){
         User sessionUser= (User) session.getAttribute("user");

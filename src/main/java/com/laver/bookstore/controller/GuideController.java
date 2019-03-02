@@ -18,7 +18,7 @@ public class GuideController  {
 	}
 	@RequestMapping("/addUserPage")
 	public String addUserPage(){
-		return "manage/user-add";
+		return "manage/manager_user_add";
 	}
 	@RequestMapping("/cartPage")
 	public String cartPage(){
@@ -38,7 +38,7 @@ public class GuideController  {
 	}
 	@RequestMapping("/mana")
 	public String mana(){
-		return "manage/index";
+		return "manage/manager_index";
 	}
 	@RequestMapping("/updatePwdPage")
 	public String updatePwdPage(){

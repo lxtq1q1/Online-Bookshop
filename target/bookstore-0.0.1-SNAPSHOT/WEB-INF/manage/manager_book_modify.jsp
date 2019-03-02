@@ -203,9 +203,11 @@
                                             <div class="line"></div>
                                             <div class="form-group row">
                                                 <div class="col-sm-4 offset-sm-3">
-                                                    <button type="reset" class="btn btn-primary">Reset</button>
-                                                    <button type="submit" class="btn btn-primary" name="submit" >Update</button>
-                                                    <input type="button" value="Cancel" onclick="cancel()" class="btn btn-primary">
+
+                                                    <button type="reset" class="btn btn-default"><i class=" fa fa-refresh "></i> 重置</button>
+                                                    <button type="submit" class="btn btn-primary"><i class="fa fa-edit "></i> 更新</button>
+                                                    <button class="btn btn-danger" onclick="cancel()"><i class="fa fa-pencil"></i> 取消</button>
+
                                                 </div>
                                             </div>
                                         </form>

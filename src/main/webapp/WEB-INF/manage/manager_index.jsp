@@ -60,7 +60,7 @@
                             </ul>
                         </li>
                         <!-- Logout    -->
-                        <li class="nav-item"><a  class="nav-link logout" onclick="logout()"> <span class="d-none d-sm-inline">Logout</span><i class="fa fa-sign-out"></i></a></li>
+                        <li class="nav-item" onclick="logout()"><a  class="nav-link logout" > <span class="d-none d-sm-inline">Logout</span><i class="fa fa-sign-out"></i></a></li>
                     </ul>
                 </div>
             </div>

@@ -139,8 +139,8 @@
                                                         <a href="manager_bookDetail.do?bid=${book.bid}" target="_blank" >${book.bname }</a>
                                                     </td>
                                                     <td >${book.detail}</td>
-                                                    <td class="w1 c"><a href="manager_book_modify.do?bid=${book.bid}">修改</a>
-                                                        <%--<a href="delBook.do?bid=${book.bid}">删除</a>--%>
+                                                    <td class="w1 c"><a href="manager_book_modify.do?bid=${book.bid}" class="btn btn-primary">修改</a>
+                                                        <a href="#" class="btn btn-danger" onclick="Delete_book(${book.bid })">删除</a>
                                                     </td>
                                                 </tr>
                                             </c:forEach>

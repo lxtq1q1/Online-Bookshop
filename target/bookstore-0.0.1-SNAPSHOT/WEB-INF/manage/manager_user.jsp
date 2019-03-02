@@ -145,8 +145,8 @@
                                                     <td >${user.email}</td>
                                                     <td >${user.adress}</td>
                                                     <td >
-                                                        <a href="manager_user_modify.do?uid=${user.uid}">修改</a>
-                                                         <a href="delUser.do?uid=${user.uid}" onclick="Delete()">删除</a>
+                                                        <a href="manager_user_modify.do?uid=${user.uid}" class="btn btn-primary">修改</a>
+                                                         <a href="#" class="btn btn-danger" onclick="Delete_user(${user.uid})">删除</a>
                                                     </td>
                                                 </tr>
                                             </c:forEach>

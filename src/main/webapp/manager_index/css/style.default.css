@@ -2170,9 +2170,9 @@ STYLE SWITCHER FOR DEMO
 }
 
 .btn-primary {
-  color: color-yiq(#796AEE);
-  background-color: #796AEE;
-  border-color: #796AEE;
+  color: #fff;
+  background-color: #428bca;
+  border-color: #357ebd;
 }
 
 .btn-primary:hover {
@@ -2458,9 +2458,9 @@ STYLE SWITCHER FOR DEMO
 }
 
 .btn-default {
-  color: color-yiq(#ced4da);
-  background-color: #ced4da;
-  border-color: #ced4da;
+  color: #333;
+  background-color: #fff;
+  border-color: #ccc;
 }
 
 .btn-default:hover {

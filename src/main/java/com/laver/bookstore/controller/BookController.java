@@ -12,11 +12,6 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
-
-
-
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -77,40 +72,11 @@ public class BookController {
 		bookService.addBook(book);
 		return new ModelAndView("redirect:/manager_book.do");
 	}
-	
-	@RequestMapping("/manaBook")
-	public String manaBook(Integer pageNum,Model model){
-		if(pageNum!=null){
-			PageHelper.startPage(pageNum,com.laver.bookstore.util.Constant.MB_PAGE_SIZE);
-		}else{
-			PageHelper.startPage(1, com.laver.bookstore.util.Constant.MB_PAGE_SIZE);
-		}
-		List<Book> books = bookService.findAllBook();
-		PageInfo<Book> pageInfo = new PageInfo<Book>(books);
-		model.addAttribute("pageInfo", pageInfo);
-		model.addAttribute("books", books);
-		return "manage/product";
-	}
 	@RequestMapping("/delBook")
 	public ModelAndView delBook(Integer bid){
 		bookService.delById(bid);
 		return new ModelAndView("redirect:/manaBook.do");
 	}
-	@RequestMapping("/modifyBookPage")
-	public String modifyBookPage(Model model,Integer bid){
-		Book book = bookService.findById(bid);
-		Set<String> bts=bookService.bookType();
-		model.addAttribute("bts", bts);
-		model.addAttribute("book", book);
-		return "manage/product-modify";
-	}
-	@RequestMapping("/addproductPage")
-	public String addproductPage(Model model){
-		Set<String> bts=bookService.bookType();
-		model.addAttribute("bts", bts);
-		return "manage/product-add";
-	}
-
 	@RequestMapping("/bookView")
 	public String bookView(Integer pageNum,Integer bid,Model model,HttpServletRequest request,HttpServletResponse response){
 		setCookies(bid, request, response);
