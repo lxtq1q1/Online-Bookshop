@@ -12,8 +12,8 @@
 
 
 
-首页地址 http://localhost:8088/index.do
+首页地址 http://39.106.147.194 :8080/index.do
 
-后台管理地址 http://localhost:8088/backLoginPage.do
+后台管理地址 http://39.106.147.194 :8080/backLoginPage.do
 
 
