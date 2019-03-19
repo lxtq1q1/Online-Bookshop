@@ -1,6 +1,6 @@
-下载项目后，新建数据库bookstore，然后导入bookstore.sql即可。
+下载项目后，新建数据库bookstore，然后导入bookstore.sql。
 
-导入项目后,在resource文件夹下修改db.properties 将数据库账号和密码修改成自己MYSQL数据库的账号密码即可。
+导入项目后,在resource文件夹下修改db.properties 将数据库账号和密码修改成自己MYSQL数据库的账号密码。
 
 技术总结：<br>
   控制器：springMVC <br>
@@ -15,5 +15,9 @@
 首页地址 http://39.106.147.194:8080/index.do
 
 后台管理地址 http://39.106.147.194:8080/backLoginPage.do
+
+
+后续改进：
+用户安全权限改进，增加 shiro<br>
 
 
