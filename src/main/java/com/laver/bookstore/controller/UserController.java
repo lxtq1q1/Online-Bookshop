@@ -66,8 +66,8 @@ public class UserController {
         }
         User user=new User();
         user.setUname(userName);
-        String md5Pwd = MD5Utils.encode(passWord);
-        user.setPassword(md5Pwd);
+        //String md5Pwd = MD5Utils.encode(passWord);
+        user.setPassword(passWord);
         if(userService.userLogin(user).getUid()!=null){
             User sessionUser=userService.userLogin(user);
             sessionUser.setPassword("");
